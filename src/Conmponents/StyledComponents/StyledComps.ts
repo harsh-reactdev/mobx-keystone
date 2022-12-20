@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.div`
+  position: fixed;
+  overflow-y: hidden;
   height: 80px;
   width: 100%;
   background-color: black;
@@ -9,20 +11,26 @@ export const StyledHeader = styled.div`
   line-height: 76px;
   font-family: 'Russo One', sans-serif;
   font-size: 42px;
+  z-index: 10;
 `;
 
 export const StyledInputArea = styled.div`
+  position: fixed;
+  overflow-y: hidden;
   /* display: grid;
   grid-template-columns: auto auto auto auto auto; */
   background-color: #2196f3;
+  top: 82px;
   padding: 10px;
   height: 60px;
   width: 100%;
   background-color: white;
+  margin-bottom: 100px;
+  z-index: 10;
 `;
 
 export const CategoryDropDown = styled.select`
-  margin-top: 10px;
+  /* margin-top: 10px; */
   height: 30px;
   width: 200px;
   border: white;
@@ -37,7 +45,7 @@ export const SearchIcon = styled.button`
   color: white;
   background-color: black;
   float: right;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-right: 5px;
   border: white;
   border-radius: 20px;
@@ -71,7 +79,7 @@ export const UserProfileIcon = styled.div`
 `;
 
 export const StyledSearchBar = styled.input`
-  margin-top: 8px;
+  /* margin-top: 8px; */
   margin-left: 15px;
   height: 35px;
   width: 70%;
@@ -83,7 +91,7 @@ export const StyledSearchBar = styled.input`
   padding: 0 10px;
 `;
 export const FilterDropDown = styled.select`
-  margin-top: 10px;
+  /* margin-top: 10px; */
   height: 30px;
   width: 200px;
   border: white;
@@ -102,6 +110,7 @@ export const CartIcon = styled.div`
   margin-top: 8px;
   margin-right: 80px;
   /* margin-left: 5px; */
+  z-index: 99;
   border: white;
   border-radius: 20px;
   font-weight: bolder;
@@ -116,4 +125,33 @@ export const StyledFooter = styled.div`
   margin: auto 0;
   position: fixed;
   bottom: 0;
+  z-index: 10;
+`;
+
+// --------------------------------------------------------------------------------------------------------------------------------
+
+export const StyledItemCard = styled.div`
+  position: relative;
+  height: 400px;
+  width: 422px;
+  background-color: lightCyan;
+  margin-left: 15px;
+  margin-top: 15px;
+  float: left;
+  top: 130px;
+  bottom: 40px;
+  border-radius: 10px;
+  /* z-index: 100; */
+`;
+
+export const StyledCartBar = styled.div`
+  height: 87.3%;
+  width: 140px;
+  position: fixed;
+  z-index: 10;
+  top: 80px;
+  right: 0;
+  background-color: skyblue;
+  overflow-x: hidden;
+  padding-top: 20px;
 `;
