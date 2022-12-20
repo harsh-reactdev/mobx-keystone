@@ -3,6 +3,8 @@
     "./src/**/*"
   ],
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
     "strict": true,
     "esModuleInterop": true,
     "lib": [
