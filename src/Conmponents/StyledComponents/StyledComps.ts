@@ -80,6 +80,7 @@ export const StyledSearchBar = styled.input`
   background-color: #eeeeee;
   border: white;
   border-radius: 10px;
+  padding: 0 10px;
 `;
 export const FilterDropDown = styled.select`
   margin-top: 10px;
