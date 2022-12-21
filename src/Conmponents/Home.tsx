@@ -5,25 +5,17 @@ import InputArea from './HomeComponents/InputArea';
 import ItemCard from './HomeComponents/ItemCard';
 import CartBar from './HomeComponents/CartBar';
 
-function Home() {
+const Home = () => {
   return (
     <>
       <Header />
       <InputArea />
       <CartBar />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <Footer />
+      <div>
+        <ItemCard />
+      </div>
     </>
   );
-}
+};
 
 export default Home;

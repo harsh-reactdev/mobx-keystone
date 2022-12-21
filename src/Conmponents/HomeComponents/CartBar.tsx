@@ -4,13 +4,13 @@ import {
   StyledCartBar,
   StyledCartCard,
 } from '../StyledComponents/StyledComps';
+import CartBarItemCard from './CartBarItemCard';
 
 function CartBar() {
   return (
     <StyledCartBar>
       <CartBarLabelWrapper>Your Cart</CartBarLabelWrapper>
-
-      <StyledCartCard />
+      <CartBarItemCard />
     </StyledCartBar>
   );
 }

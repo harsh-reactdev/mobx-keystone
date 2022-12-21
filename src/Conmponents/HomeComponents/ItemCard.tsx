@@ -10,21 +10,30 @@ import {
 import { ShoppingSite, Product } from '../../Core/Store';
 
 function ItemCard() {
-  // const pData = prodList.products.map((product: Product) => (
-  return (
+  const [productData, setProductData] = useState([]);
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/')
+      .then((response) => response.json())
+      .then((response) => {
+        const pData = response;
+        setProductData(pData);
+      });
+  }, []);
+  const pData = productData.map((product: Product) => (
+    // return (
     <StyledItemCard>
       <ProductImage>
-        {/* <StyledItemImg src={product.image} alt={product.title} /> */}
+        <StyledItemImg src={product.image} alt={product.title} />
       </ProductImage>
-      {/* <ProductTitle>{product.title}</ProductTitle> */}
+      <ProductTitle>{product.title}</ProductTitle>
       <AddToCartBtn>
         Add To Cart
-        {/* <ProductPrice>${product.price}</ProductPrice> */}
+        <ProductPrice>${product.price}</ProductPrice>
       </AddToCartBtn>
     </StyledItemCard>
-  );
-  // ));
-  // return <>{pData}</>;
+    // );
+  ));
+  return <>{pData}</>;
 }
 
 export default ItemCard;

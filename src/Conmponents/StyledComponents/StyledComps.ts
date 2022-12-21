@@ -165,10 +165,10 @@ export const StyledCartBar = styled.div`
 
 export const StyledCartCard = styled.div`
   height: 100px;
-  width: 100px;
+  width: 80px;
   /* margin: 21px; */
   margin-top: 20px;
-  margin-left: 22px;
+  margin-left: 43px;
   background-color: lightgrey;
   /* cursor: pointer; */
 `;
@@ -237,4 +237,14 @@ export const AddToCartBtn = styled.button`
   &:hover {
     background-color: lightcoral;
   }
+`;
+
+export const CartBarImg = styled.img`
+  width: 112px;
+  height: 110px;
+  scale: 0.9;
+  position: relative;
+  right: 32px;
+  margin: 5px 5px;
+  bottom: 10px;
 `;
