@@ -1,14 +1,16 @@
 import React from 'react';
-import { StyledCartBar } from '../StyledComponents/StyledComps';
+import {
+  CartBarLabelWrapper,
+  StyledCartBar,
+  StyledCartCard,
+} from '../StyledComponents/StyledComps';
 
 function CartBar() {
   return (
     <StyledCartBar>
-      <div>
-        <center>
-          <b>Cart</b>
-        </center>
-      </div>
+      <CartBarLabelWrapper>Your Cart</CartBarLabelWrapper>
+
+      <StyledCartCard />
     </StyledCartBar>
   );
 }

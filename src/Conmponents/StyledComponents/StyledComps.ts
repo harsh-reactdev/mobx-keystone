@@ -132,20 +132,21 @@ export const StyledFooter = styled.div`
 
 export const StyledItemCard = styled.div`
   position: relative;
-  height: 400px;
+  height: 500px;
   width: 422px;
   background-color: lightCyan;
   margin-left: 15px;
   margin-top: 15px;
+  margin-bottom: 20px;
   float: left;
   top: 130px;
-  bottom: 40px;
+  /* bottom: 40px; */
   border-radius: 10px;
   /* z-index: 100; */
 `;
 
 export const StyledCartBar = styled.div`
-  height: 87.3%;
+  height: 91.5%;
   width: 140px;
   position: fixed;
   z-index: 10;
@@ -154,4 +155,86 @@ export const StyledCartBar = styled.div`
   background-color: skyblue;
   overflow-x: hidden;
   padding-top: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const StyledCartCard = styled.div`
+  height: 100px;
+  width: 100px;
+  /* margin: 21px; */
+  margin-top: 20px;
+  margin-left: 22px;
+  background-color: lightgrey;
+  /* cursor: pointer; */
+`;
+
+export const CartBarLabelWrapper = styled.button`
+  height: 30px;
+  width: 100%;
+  background-color: lightYellow;
+  font-weight: bolder;
+  text-align: center;
+  border: none;
+`;
+
+export const ProductImage = styled.div`
+  width: 380px;
+  height: 350px;
+  /* background-color: black; */
+  margin: 0px 15px 0 21px;
+  border-radius: 10px;
+`;
+
+export const StyledItemImg = styled.img`
+  width: 380px;
+  height: 370px;
+  scale: 0.9;
+  /* position: fixed; */
+  margin: 5px 5px;
+`;
+
+export const ProductTitle = styled.div`
+  height: 60px;
+  width: 380px;
+  padding: 10px;
+  background-color: #eeeeee;
+  margin: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+`;
+
+export const ProductPrice = styled.div`
+  height: 35px;
+  width: 100px;
+  background-color: cyan;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  float: right;
+  position: relative;
+  bottom: 3px;
+  line-height: 14px;
+`;
+
+export const AddToCartBtn = styled.button`
+  height: 50px;
+  width: 380px;
+  padding: 10px;
+  background-color: #eeeeee;
+  margin: 0px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+
+  &:hover {
+    background-color: lightcoral;
+  }
 `;

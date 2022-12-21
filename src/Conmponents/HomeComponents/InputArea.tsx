@@ -18,13 +18,20 @@ function InputArea() {
   return (
     <StyledInputArea>
       <CategoryDropDown>
-        <option value="">--Choose Categories--</option>
+        <option value="" defaultChecked>
+          --Select Category--
+        </option>
+        <option value="electronics">Electronics</option>
+        <option value="jewelery">Jewelery</option>
+        <option value="men's clothing">Men's clothing</option>
+        <option value="women's clothing">Women's clothing</option>
       </CategoryDropDown>
 
       <StyledSearchBar placeholder="Search..." />
 
       <FilterDropDown>
         <option value="">--Filter By--</option>
+        <option value="lowToHigh">price low to high</option>
       </FilterDropDown>
 
       <CartIcon>
