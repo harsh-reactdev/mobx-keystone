@@ -170,16 +170,19 @@ export const StyledCartCard = styled.div`
   margin-top: 20px;
   margin-left: 43px;
   background-color: lightgrey;
+  border-radius: 10px;
   /* cursor: pointer; */
 `;
 
 export const CartBarLabelWrapper = styled.button`
-  height: 30px;
+  height: 34px;
   width: 100%;
-  background-color: lightYellow;
+  background-color: lightseagreen;
   font-weight: bolder;
   text-align: center;
   border: none;
+  position: relative;
+  bottom: 7px;
 `;
 
 export const ProductImage = styled.div`
@@ -247,4 +250,5 @@ export const CartBarImg = styled.img`
   right: 32px;
   margin: 5px 5px;
   bottom: 10px;
+  border-radius: 10px;
 `;
