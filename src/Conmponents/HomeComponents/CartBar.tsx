@@ -11,13 +11,16 @@ import { observer } from 'mobx-react';
 
 function CartBar() {
   const storeCtx = useContext(storeContext);
-
+  const total = storeCtx.cartProducts.reduce(
+    (acc, item) => acc + item.price,
+    0
+  );
   return (
     <StyledCartBar>
       <CartBarLabelWrapper>Your Cart</CartBarLabelWrapper>
       {/* <CartBarItemCard /> */}
       <CartItems />
-      <CartTotalVal>{storeCtx.cartTotal}</CartTotalVal>
+      <CartTotalVal>{total.toFixed(2)}</CartTotalVal>
     </StyledCartBar>
   );
 }
