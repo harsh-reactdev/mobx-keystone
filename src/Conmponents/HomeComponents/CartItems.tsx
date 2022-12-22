@@ -13,7 +13,7 @@ import { observer } from 'mobx-react';
 const CartItems = observer(() => {
   const storeCtx = useContext(storeContext);
 
-  const [itemCount, setItemCount] = useState(0);
+  const [itemCount, setItemCount] = useState(1);
 
   const list = storeCtx.cartProducts.map((item) => (
     <StyledCartCard>
@@ -23,7 +23,15 @@ const CartItems = observer(() => {
           +
         </IncrementBtn>
         <ItemCountValue>{itemCount}</ItemCountValue>
-        <DecrementBtn onClick={() => setItemCount(itemCount - 1)}>
+        <DecrementBtn
+          onClick={() =>
+            itemCount === 1
+              ? storeCtx.deleteFromCart(item)
+              : itemCount > 1
+              ? setItemCount(itemCount - 1)
+              : null
+          }
+        >
           -
         </DecrementBtn>
       </ItemCountDiv>

@@ -198,7 +198,7 @@ export const DecrementBtn = styled.button`
 export const ItemCountValue = styled.div`
   color: crimson;
   position: relative;
-  margin-left: 40px;
+  margin-left: 47px;
   font-weight: bold;
 `;
 
