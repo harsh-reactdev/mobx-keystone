@@ -356,3 +356,14 @@ export const CWItemCount = styled.div`
   font-size: 12px;
   text-align: center;
 `;
+
+export const CartTotalVal = styled.div`
+  height: 30px;
+  width: 100%;
+  background-color: black;
+  color: crimson;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  /* text-align: center; */
+`;

@@ -32,11 +32,18 @@ export class Product extends Model({
 export class CartStore extends Model({
   cartProducts: tProp(types.array(types.object(types.model(Product)))),
   wishlist: tProp(types.array(types.object(types.model(Product)))),
+  cartTotal: tProp(types.number),
 }) {
+  // @modelAction
+  // computeCartTotal(price: number, action: string) {
+  //   action === 'add' ? (this.cartTotal += price) : (this.cartTotal -= price);
+  // }
+
   @modelAction
   addToCart(item: Product) {
     this.checkIfAlreadyThere(item.id) ? null : this.cartProducts.push(item);
-    console.log(item);
+    // // console.log(item);
+    this.cartTotal += item.price;
   }
 
   @modelAction
@@ -50,11 +57,16 @@ export class CartStore extends Model({
       this.cartProducts.findIndex((list) => item.id === list.id),
       1
     );
+    this.cartTotal -= item.price;
   }
 }
 
 export function createRootStore() {
-  const rootStore = new CartStore({ cartProducts: [], wishlist: [] });
+  const rootStore = new CartStore({
+    cartProducts: [],
+    wishlist: [],
+    cartTotal: 0,
+  });
   // const snap = getSnapshot(CartStore);
   registerRootStore(rootStore);
   return rootStore;
