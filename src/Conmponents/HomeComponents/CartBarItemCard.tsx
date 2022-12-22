@@ -8,6 +8,7 @@ import {
   StyledCartCard,
   StyledItemImg,
 } from '../StyledComponents/StyledComps';
+// import { observer } from 'mobx-react/dist/observer';
 
 function CartBarItemCard() {
   return (

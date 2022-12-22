@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from 'react';
-import { computed, set } from 'mobx';
+import { computed, observable, set } from 'mobx';
 import {
   registerRootStore,
   model,
@@ -8,6 +8,7 @@ import {
   tProp,
   types,
   prop,
+  getSnapshot,
 } from 'mobx-keystone';
 
 @model('shoppingCart/Rating')
@@ -41,7 +42,7 @@ export class CartStore extends Model({
 
 export function createRootStore() {
   const rootStore = new CartStore({ cartProducts: [], wishlist: [] });
-
+  // const snap = getSnapshot(CartStore);
   registerRootStore(rootStore);
   return rootStore;
 }

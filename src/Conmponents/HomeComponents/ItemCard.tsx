@@ -10,6 +10,7 @@ import {
 } from '../StyledComponents/StyledComps';
 import { Product, storeContext } from '../../Core/Store';
 import { useContext } from 'react';
+import { observer } from 'mobx-react';
 
 function ItemCard() {
   const storeCtx = useContext(storeContext);

@@ -4,7 +4,6 @@ import {
   StyledCartBar,
   StyledCartCard,
 } from '../StyledComponents/StyledComps';
-import CartBarItemCard from './CartBarItemCard';
 import CartItems from './CartItems';
 
 function CartBar() {

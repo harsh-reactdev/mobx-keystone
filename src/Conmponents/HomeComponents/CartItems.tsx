@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { storeContext } from '../../Core/Store';
 import {
   StyledCartCard,
@@ -8,22 +8,29 @@ import {
   ItemCountValue,
   DecrementBtn,
 } from '../StyledComponents/StyledComps';
+import { observer } from 'mobx-react';
 
-function CartItems() {
+const CartItems = observer(() => {
   const storeCtx = useContext(storeContext);
+
+  const [itemCount, setItemCount] = useState(0);
 
   const list = storeCtx.cartProducts.map((item) => (
     <StyledCartCard>
       <CartBarImg src={item.image} alt={item.title} />
       <ItemCountDiv>
-        <IncrementBtn>+</IncrementBtn>
-        <ItemCountValue>10</ItemCountValue>
-        <DecrementBtn>-</DecrementBtn>
+        <IncrementBtn onClick={() => setItemCount(itemCount + 1)}>
+          +
+        </IncrementBtn>
+        <ItemCountValue>{itemCount}</ItemCountValue>
+        <DecrementBtn onClick={() => setItemCount(itemCount - 1)}>
+          -
+        </DecrementBtn>
       </ItemCountDiv>
     </StyledCartCard>
   ));
 
   return <>{list}</>;
-}
+});
 
 export default CartItems;
