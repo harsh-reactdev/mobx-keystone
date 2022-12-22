@@ -1,24 +1,26 @@
 import React from 'react';
 import {
   CWItemCount,
-  StyledWishListAndCart,
+  StyledWishList,
+  StyledCart,
 } from '../StyledComponents/StyledComps';
 
 function WishlistAndCart() {
   return (
     <>
-      <StyledWishListAndCart>
+      <StyledCart>
         Cart
         <span>
           <CWItemCount>23</CWItemCount>
         </span>
-      </StyledWishListAndCart>
-      <StyledWishListAndCart>
+      </StyledCart>
+      {/* <br /> */}
+      <StyledWishList>
         WishList
         <span>
           <CWItemCount>17</CWItemCount>
         </span>
-      </StyledWishListAndCart>
+      </StyledWishList>
     </>
   );
 }

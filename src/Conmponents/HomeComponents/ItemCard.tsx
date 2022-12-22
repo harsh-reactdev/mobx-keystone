@@ -20,8 +20,8 @@ function ItemCard() {
         setProductData(pData);
       });
   }, []);
+
   const pData = productData.map((product: Product) => (
-    // return (
     <StyledItemCard>
       <ProductImage>
         <StyledItemImg src={product.image} alt={product.title} />
@@ -37,7 +37,6 @@ function ItemCard() {
         <AddToWishListBtn>♡</AddToWishListBtn>
       </span>
     </StyledItemCard>
-    // );
   ));
   return <>{pData}</>;
 }

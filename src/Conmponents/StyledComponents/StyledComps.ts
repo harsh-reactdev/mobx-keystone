@@ -175,6 +175,46 @@ export const StyledCartCard = styled.div`
   /* cursor: pointer; */
 `;
 
+export const ItemCountDiv = styled.div`
+  height: 25px;
+  width: 101px;
+  background-color: black;
+  position: relative;
+  bottom: 45px;
+  right: 22px;
+  border-radius: 0 0 10px 10px;
+`;
+
+export const DecrementBtn = styled.button`
+  font-weight: bold;
+  height: 25px;
+  width: 25px;
+  background-color: crimson;
+  border-radius: 0 0 0 10px;
+  position: absolute;
+  line-height: 0.9;
+  top: 0px;
+`;
+
+export const ItemCountValue = styled.div`
+  color: crimson;
+  position: relative;
+  margin-left: 40px;
+  font-weight: bold;
+`;
+
+export const IncrementBtn = styled.button`
+  font-weight: bold;
+  height: 25px;
+  width: 25px;
+  background-color: crimson;
+  border-radius: 0 0 10px 0px;
+  position: absolute;
+  line-height: 0.9;
+  margin-left: 76px;
+  z-index: 10;
+`;
+
 export const CartBarLabelWrapper = styled.button`
   height: 34px;
   width: 100%;
@@ -275,7 +315,22 @@ export const CartBarImg = styled.img`
   border-radius: 10px;
 `;
 
-export const StyledWishListAndCart = styled.button`
+export const StyledWishList = styled.button`
+  float: right;
+  height: 30px;
+  background-color: aliceblue;
+  width: 110px;
+  margin-top: 20px;
+  margin-left: 20.5%;
+  border-radius: 10px;
+  font-size: 16px;
+  color: crimson;
+  line-height: 1.5;
+  text-align: left;
+  position: absolute;
+`;
+
+export const StyledCart = styled.button`
   float: right;
   height: 30px;
   background-color: aliceblue;
@@ -285,7 +340,7 @@ export const StyledWishListAndCart = styled.button`
   border-radius: 10px;
   font-size: 16px;
   color: crimson;
-  line-height: 0;
+  line-height: 1.5;
   text-align: left;
 `;
 
@@ -294,11 +349,11 @@ export const CWItemCount = styled.div`
   width: 20px;
   background-color: black;
   margin-left: 76px;
-  position: absolute;
-  bottom: 35px;
+  position: relative;
+  bottom: 22px;
   color: white;
   border-radius: 4px;
-  line-height: 1.5;
+  line-height: 1.8;
   font-size: 12px;
   text-align: center;
 `;
