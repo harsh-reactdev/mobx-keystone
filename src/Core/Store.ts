@@ -63,7 +63,6 @@ export function createRootStore() {
     cartProducts: [],
     wishlist: [],
   });
-  // const snap = getSnapshot(CartStore);
   registerRootStore(rootStore);
   return rootStore;
 }
