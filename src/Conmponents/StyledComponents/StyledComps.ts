@@ -166,13 +166,12 @@ export const StyledCartBar = styled.div`
 
 export const StyledCartCard = styled.div`
   height: 100px;
-  width: 80px;
-  /* margin: 21px; */
+  width: 100px;
   margin-top: 20px;
-  margin-left: 43px;
   background-color: lightgrey;
   border-radius: 10px;
-  /* cursor: pointer; */
+  position: relative;
+  left: 20px;
 `;
 
 export const ItemCountDiv = styled.div`
@@ -180,8 +179,8 @@ export const ItemCountDiv = styled.div`
   width: 101px;
   background-color: black;
   position: relative;
-  bottom: 45px;
-  right: 22px;
+  bottom: 46px;
+  right: 1px;
   border-radius: 0 0 10px 10px;
 `;
 
@@ -305,13 +304,13 @@ export const AddToWishListBtn = styled.button`
 `;
 
 export const CartBarImg = styled.img`
-  width: 112px;
-  height: 110px;
+  width: 113px;
+  height: 112px;
   scale: 0.9;
   position: relative;
-  right: 32px;
+  right: 12px;
   margin: 5px 5px;
-  bottom: 10px;
+  bottom: 11px;
   border-radius: 10px;
 `;
 
