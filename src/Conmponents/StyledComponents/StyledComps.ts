@@ -21,7 +21,7 @@ export const StyledInputArea = styled.div`
   /* display: grid;
   grid-template-columns: auto auto auto auto auto; */
   background-color: #2196f3;
-  top: 82px;
+  top: 80px;
   padding: 10px;
   height: 60px;
   width: 100%;
@@ -83,7 +83,7 @@ export const StyledSearchBar = styled.input`
   /* margin-top: 8px; */
   margin-left: 15px;
   height: 35px;
-  width: 70%;
+  width: 69.4%;
   align-items: center;
   backface-visibility: hidden;
   background-color: #eeeeee;

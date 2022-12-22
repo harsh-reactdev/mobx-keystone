@@ -8,10 +8,14 @@ import {
   StyledItemCard,
   AddToWishListBtn,
 } from '../StyledComponents/StyledComps';
-import { ShoppingSite, Product } from '../../Core/Store';
+import { Product, storeContext } from '../../Core/Store';
+import { useContext } from 'react';
 
 function ItemCard() {
+  const storeCtx = useContext(storeContext);
+
   const [productData, setProductData] = useState([]);
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products/')
       .then((response) => response.json())
@@ -28,7 +32,7 @@ function ItemCard() {
       </ProductImage>
       <ProductTitle>{product.title}</ProductTitle>
       <span>
-        <AddToCartBtn>
+        <AddToCartBtn onClick={() => storeCtx.addToCart(product)}>
           Add To Cart
           <ProductPrice>${product.price}</ProductPrice>
         </AddToCartBtn>

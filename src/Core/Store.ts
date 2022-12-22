@@ -1,7 +1,20 @@
-import { registerRootStore } from 'mobx-keystone';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { computed, set } from 'mobx';
-import { model, Model, modelAction, tProp, types } from 'mobx-keystone';
+import {
+  registerRootStore,
+  model,
+  Model,
+  modelAction,
+  tProp,
+  types,
+  prop,
+} from 'mobx-keystone';
+
+@model('shoppingCart/Rating')
+export class Rating extends Model({
+  rate: tProp(types.number),
+  count: tProp(types.number),
+}) {}
 
 @model('shoppingCart/Product')
 export class Product extends Model({
@@ -10,27 +23,27 @@ export class Product extends Model({
   id: tProp(types.number),
   image: tProp(types.string),
   price: tProp(types.number),
-  rating: tProp(types.object(types.number)),
+  rating: tProp(types.object(types.model(Rating))),
   title: tProp(types.string),
 }) {}
 
 @model('shoppingCart/ShoppingSite')
-export class ShoppingSite extends Model({
-  cartProducts: tProp(types.array(types.model(Product)), () => []).withSetter(),
+export class CartStore extends Model({
+  cartProducts: tProp(types.array(types.object(types.model(Product)))),
+  wishlist: tProp(types.array(types.object(types.model(Product)))),
 }) {
-  @computed
-  CategoryBasedProducts(category: string) {
-    return this.cartProducts.filter((prod) => prod.category === category);
-  }
   @modelAction
   addToCart(item: Product) {
     this.cartProducts.push(item);
+    console.log(item);
   }
 }
 
 export function createRootStore() {
-  const rootStore = new ShoppingSite({ cartProducts: [] });
+  const rootStore = new CartStore({ cartProducts: [], wishlist: [] });
 
   registerRootStore(rootStore);
   return rootStore;
 }
+
+export const storeContext = createContext(createRootStore());

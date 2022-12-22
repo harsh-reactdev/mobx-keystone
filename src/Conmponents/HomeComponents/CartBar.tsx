@@ -5,12 +5,14 @@ import {
   StyledCartCard,
 } from '../StyledComponents/StyledComps';
 import CartBarItemCard from './CartBarItemCard';
+import CartItems from './CartItems';
 
 function CartBar() {
   return (
     <StyledCartBar>
       <CartBarLabelWrapper>Your Cart</CartBarLabelWrapper>
-      <CartBarItemCard />
+      {/* <CartBarItemCard /> */}
+      <CartItems />
     </StyledCartBar>
   );
 }

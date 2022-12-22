@@ -1,4 +1,4 @@
-import Home from './Conmponents/Home';
+import Home from './Core/Home';
 import React from 'react';
 
 const App = () => {
