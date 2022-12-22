@@ -6,6 +6,7 @@ import {
   ProductTitle,
   StyledItemImg,
   StyledItemCard,
+  AddToWishListBtn,
 } from '../StyledComponents/StyledComps';
 import { ShoppingSite, Product } from '../../Core/Store';
 
@@ -26,10 +27,15 @@ function ItemCard() {
         <StyledItemImg src={product.image} alt={product.title} />
       </ProductImage>
       <ProductTitle>{product.title}</ProductTitle>
-      <AddToCartBtn>
-        Add To Cart
-        <ProductPrice>${product.price}</ProductPrice>
-      </AddToCartBtn>
+      <span>
+        <AddToCartBtn>
+          Add To Cart
+          <ProductPrice>${product.price}</ProductPrice>
+        </AddToCartBtn>
+      </span>
+      <span>
+        <AddToWishListBtn>♡</AddToWishListBtn>
+      </span>
     </StyledItemCard>
     // );
   ));

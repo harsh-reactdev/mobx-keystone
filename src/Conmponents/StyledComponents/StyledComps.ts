@@ -12,6 +12,7 @@ export const StyledHeader = styled.div`
   font-family: 'Russo One', sans-serif;
   font-size: 42px;
   z-index: 10;
+  padding-left: 14%;
 `;
 
 export const StyledInputArea = styled.div`
@@ -202,7 +203,7 @@ export const StyledItemImg = styled.img`
 `;
 
 export const ProductTitle = styled.div`
-  height: 60px;
+  height: 54px;
   width: 380px;
   padding: 10px;
   background-color: #eeeeee;
@@ -210,11 +211,12 @@ export const ProductTitle = styled.div`
   border-radius: 10px;
   text-align: center;
   font-weight: bold;
+  font-size: 12px;
 `;
 
 export const ProductPrice = styled.div`
-  height: 35px;
-  width: 100px;
+  height: 25px;
+  width: 70px;
   background-color: cyan;
   border-radius: 10px;
   text-align: center;
@@ -223,12 +225,14 @@ export const ProductPrice = styled.div`
   float: right;
   position: relative;
   bottom: 3px;
-  line-height: 14px;
+  line-height: 6px;
+  font-size: small;
+  margin-left: 10px;
 `;
 
 export const AddToCartBtn = styled.button`
   height: 50px;
-  width: 380px;
+  width: 308px;
   padding: 10px;
   background-color: #eeeeee;
   margin: 0px 20px;
@@ -236,6 +240,24 @@ export const AddToCartBtn = styled.button`
   text-align: center;
   font-weight: bold;
   border: none;
+  font-size: 14px;
+
+  &:hover {
+    background-color: lightcoral;
+  }
+`;
+
+export const AddToWishListBtn = styled.button`
+  height: 50px;
+  position: absolute;
+  width: 52px;
+  padding: 10px;
+  background-color: #eeeeee;
+  border-radius: 26px;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  font-size: 14px;
 
   &:hover {
     background-color: lightcoral;
@@ -251,4 +273,32 @@ export const CartBarImg = styled.img`
   margin: 5px 5px;
   bottom: 10px;
   border-radius: 10px;
+`;
+
+export const StyledWishListAndCart = styled.button`
+  float: right;
+  height: 30px;
+  background-color: aliceblue;
+  width: 110px;
+  margin-top: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: crimson;
+  line-height: 0;
+  text-align: left;
+`;
+
+export const CWItemCount = styled.div`
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  margin-left: 76px;
+  position: absolute;
+  bottom: 35px;
+  color: white;
+  border-radius: 4px;
+  line-height: 1.5;
+  font-size: 12px;
+  text-align: center;
 `;
