@@ -38,14 +38,14 @@ export class CartStore extends Model({
   //   action === 'add' ? (this.cartTotal += price) : (this.cartTotal -= price);
   // }
   @modelAction
-  checkIfAlreadyThere(id: number) {
-    return this.cartProducts.find((elem) => elem.id === id) ? true : false;
+  checkIfAlreadyThere(id: number, dest: Product[]) {
+    return dest.find((elem) => elem.id === id) ? true : false;
   }
 
   @modelAction
-  addToCart(item: Product) {
-    const check = this.checkIfAlreadyThere(item.id);
-    if (!check) this.cartProducts.push(item);
+  addItem(item: Product, dest: Product[]) {
+    const check = this.checkIfAlreadyThere(item.id, dest);
+    if (!check) dest.push(item);
     // // console.log(item);
   }
 

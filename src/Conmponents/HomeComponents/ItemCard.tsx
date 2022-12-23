@@ -33,13 +33,19 @@ function ItemCard() {
       </ProductImage>
       <ProductTitle>{product.title}</ProductTitle>
       <span>
-        <AddToCartBtn onClick={() => storeCtx.addToCart(product)}>
+        <AddToCartBtn
+          onClick={() => storeCtx.addItem(product, storeCtx.cartProducts)}
+        >
           Add To Cart
           <ProductPrice>${product.price}</ProductPrice>
         </AddToCartBtn>
       </span>
       <span>
-        <AddToWishListBtn>♡</AddToWishListBtn>
+        <AddToWishListBtn
+          onClick={() => storeCtx.addItem(product, storeCtx.wishlist)}
+        >
+          ♡
+        </AddToWishListBtn>
       </span>
     </StyledItemCard>
   ));
