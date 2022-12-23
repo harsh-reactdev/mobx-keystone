@@ -135,7 +135,8 @@ export const StyledItemCard = styled.div`
   position: relative;
   height: 500px;
   width: 422px;
-  background-color: lightCyan;
+  background-color: #eeeeeee;
+  border: 1px solid cyan;
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 20px;
@@ -300,6 +301,10 @@ export const AddToWishListBtn = styled.button`
 
   &:hover {
     background-color: lightcoral;
+  }
+
+  &:active {
+    background-color: red;
   }
 `;
 
