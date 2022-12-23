@@ -37,18 +37,16 @@ export class CartStore extends Model({
   // computeCartTotal(price: number, action: string) {
   //   action === 'add' ? (this.cartTotal += price) : (this.cartTotal -= price);
   // }
-
-  @modelAction
-  addToCart(item: Product) {
-    this.checkIfAlreadyThere(item.id)
-      ? console.log('Already in the cart')
-      : this.cartProducts.push(item);
-    // // console.log(item);
-  }
-
   @modelAction
   checkIfAlreadyThere(id: number) {
     return this.cartProducts.find((elem) => elem.id === id) ? true : false;
+  }
+
+  @modelAction
+  addToCart(item: Product) {
+    const check = this.checkIfAlreadyThere(item.id);
+    check ? console.log('Already in the cart') : this.cartProducts.push(item);
+    // // console.log(item);
   }
 
   @modelAction
