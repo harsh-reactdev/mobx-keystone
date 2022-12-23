@@ -45,7 +45,7 @@ export class CartStore extends Model({
   @modelAction
   addToCart(item: Product) {
     const check = this.checkIfAlreadyThere(item.id);
-    if (check) this.cartProducts.push(item);
+    if (!check) this.cartProducts.push(item);
     // // console.log(item);
   }
 
