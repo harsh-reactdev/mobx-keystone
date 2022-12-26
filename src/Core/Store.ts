@@ -50,9 +50,9 @@ export class CartStore extends Model({
   }
 
   @modelAction
-  deleteFromCart(item: Product) {
-    this.cartProducts.splice(
-      this.cartProducts.findIndex((list) => item.id === list.id),
+  deleteItem(item: Product, dest: Product[]) {
+    dest.splice(
+      dest.findIndex((list) => item.id === list.id),
       1
     );
   }
