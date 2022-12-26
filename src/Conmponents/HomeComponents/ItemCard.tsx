@@ -26,8 +26,8 @@ function ItemCard() {
       });
   }, []);
 
-  const pData = productData.map((product: Product) => (
-    <StyledItemCard>
+  const pData = productData.map((product: Product, index: number) => (
+    <StyledItemCard key={index}>
       <ProductImage>
         <StyledItemImg src={product.image} alt={product.title} />
       </ProductImage>
@@ -42,7 +42,11 @@ function ItemCard() {
       </span>
       <span>
         <AddToWishListBtn
-          onClick={() => storeCtx.addItem(product, storeCtx.wishlist)}
+          onClick={() =>
+            storeCtx.checkIfAlreadyThere(product.id, storeCtx.wishlist)
+              ? storeCtx.deleteItem(product, storeCtx.wishlist)
+              : storeCtx.addItem(product, storeCtx.wishlist)
+          }
         >
           ♡
         </AddToWishListBtn>

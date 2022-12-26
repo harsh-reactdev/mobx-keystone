@@ -15,8 +15,8 @@ const CartItems = observer(() => {
 
   const [itemCount, setItemCount] = useState(1);
 
-  const list = storeCtx.cartProducts.map((item) => (
-    <StyledCartCard>
+  const list = storeCtx.cartProducts.map((item, index) => (
+    <StyledCartCard key={index}>
       <CartBarImg src={item.image} alt={item.title} />
       <ItemCountDiv>
         <IncrementBtn onClick={() => setItemCount(itemCount + 1)}>
@@ -26,7 +26,7 @@ const CartItems = observer(() => {
         <DecrementBtn
           onClick={() =>
             itemCount === 1
-              ? storeCtx.deleteFromCart(item)
+              ? storeCtx.deleteItem(item, storeCtx.cartProducts)
               : itemCount > 1
               ? setItemCount(itemCount - 1)
               : null

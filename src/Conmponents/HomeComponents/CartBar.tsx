@@ -20,7 +20,7 @@ function CartBar() {
       <CartBarLabelWrapper>Your Cart</CartBarLabelWrapper>
       {/* <CartBarItemCard /> */}
       <CartItems />
-      <CartTotalVal>{total.toFixed(2)}</CartTotalVal>
+      {/* <CartTotalVal>{total.toFixed(2)}</CartTotalVal> */}
     </StyledCartBar>
   );
 }

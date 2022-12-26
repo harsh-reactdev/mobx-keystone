@@ -4,9 +4,10 @@ import Header from '../Conmponents/HomeComponents/Header';
 import InputArea from '../Conmponents/HomeComponents/InputArea';
 import ItemCard from '../Conmponents/HomeComponents/ItemCard';
 import CartBar from '../Conmponents/HomeComponents/CartBar';
-import Wishlist from '../Conmponents/HomeComponents/WishListAndCart';
+import Wishlist from '../Conmponents/HomeComponents/Wishlist';
 import { Product, createRootStore } from './Store';
 import { TypeCheckError } from 'mobx-keystone';
+import WishListAndCart from '../Conmponents/HomeComponents/WishListAndCart';
 
 const Home = () => {
   const [store] = useState(() => createRootStore());
@@ -14,6 +15,8 @@ const Home = () => {
     <>
       <Header />
       <InputArea />
+      <WishListAndCart />
+      {/* <Wishlist /> */}
       <Wishlist />
       <CartBar />
       <div>

@@ -134,7 +134,7 @@ export const StyledFooter = styled.div`
 export const StyledItemCard = styled.div`
   position: relative;
   height: 500px;
-  width: 422px;
+  width: 392px;
   background-color: #eeeeeee;
   border: 1px solid cyan;
   margin-left: 15px;
@@ -155,6 +155,25 @@ export const StyledCartBar = styled.div`
   top: 80px;
   right: 0;
   background-color: skyblue;
+  overflow-x: hidden;
+  padding-top: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const StyledWishListBar = styled.div`
+  height: 91.5%;
+  width: 140px;
+  position: fixed;
+  z-index: 10;
+  top: 80px;
+  right: 140px;
+  background-color: teal;
+  border: 1px solid black;
   overflow-x: hidden;
   padding-top: 20px;
   overflow-x: hidden;
@@ -235,16 +254,16 @@ export const ProductImage = styled.div`
 `;
 
 export const StyledItemImg = styled.img`
-  width: 380px;
+  width: 354px;
   height: 370px;
   scale: 0.9;
   /* position: fixed; */
-  margin: 5px 5px;
+  margin: 5px 0px;
 `;
 
 export const ProductTitle = styled.div`
   height: 54px;
-  width: 380px;
+  width: 350px;
   padding: 10px;
   background-color: #eeeeee;
   margin: 15px 20px;
@@ -272,7 +291,7 @@ export const ProductPrice = styled.div`
 
 export const AddToCartBtn = styled.button`
   height: 50px;
-  width: 308px;
+  width: 279px;
   padding: 10px;
   background-color: #eeeeee;
   margin: 0px 20px;
