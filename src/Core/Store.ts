@@ -1,5 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
-import { computed, observable, set } from 'mobx';
+import { createContext } from 'react';
 import {
   registerRootStore,
   model,
@@ -13,7 +12,6 @@ import {
   onActionMiddleware,
   serializeActionCall,
   ActionTrackingResult,
-  DataModel,
 } from 'mobx-keystone';
 
 @model('shoppingCart/Rating')
@@ -49,6 +47,8 @@ export class CartStore extends Model({
 
   @modelAction
   addItem(item: Product, dest: Product[]) {
+    // const itemSnap = getSnapshot(item);
+    // console.log(itemSnap);
     const check = this.checkIfAlreadyThere(item.id, dest);
     if (!check) dest.push(item);
     // // console.log(item);
@@ -80,6 +80,7 @@ export function createRootStore() {
 }
 
 const newRootStoreSnapshot = getSnapshot(createRootStore());
+console.log(newRootStoreSnapshot);
 const rootstore = fromSnapshot<CartStore>(newRootStoreSnapshot);
 
 // onActionMiddleware(rootstore, {

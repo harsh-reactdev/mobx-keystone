@@ -11,7 +11,7 @@ import {
 import { Product, storeContext } from '../../Core/Store';
 import { useContext } from 'react';
 import { observer } from 'mobx-react';
-import { getSnapshot } from 'mobx-keystone';
+import { fromSnapshot, getSnapshot } from 'mobx-keystone';
 
 function ItemCard() {
   const storeCtx = useContext(storeContext);
@@ -27,33 +27,37 @@ function ItemCard() {
       });
   }, []);
 
-  const pData = productData.map((product: Product, index: number) => (
-    <StyledItemCard key={index}>
-      <ProductImage>
-        <StyledItemImg src={product.image} alt={product.title} />
-      </ProductImage>
-      <ProductTitle>{product.title}</ProductTitle>
-      <span>
-        <AddToCartBtn
-          onClick={() => {
-            storeCtx.addItem(product, storeCtx.cartProducts);
-            const sn = getSnapshot(storeContext);
-            console.log(sn);
-          }}
-        >
-          Add To Cart
-          <ProductPrice>${product.price}</ProductPrice>
-        </AddToCartBtn>
-      </span>
-      <span>
-        <AddToWishListBtn
-          onClick={() => storeCtx.addAndRemoveFromWIshlist(product)}
-        >
-          ♡
-        </AddToWishListBtn>
-      </span>
-    </StyledItemCard>
-  ));
+  const pData = productData.map((product: Product, index: number) => {
+    // const prod = new Product(product);
+    // const newItemSnap = getSnapshot(product);
+    // const newProduct = fromSnapshot<Product>(newItemSnap);
+    // console.log(newItemSnap);
+    return (
+      <StyledItemCard key={index}>
+        <ProductImage>
+          <StyledItemImg src={product.image} alt={product.title} />
+        </ProductImage>
+        <ProductTitle>{product.title}</ProductTitle>
+        <span>
+          <AddToCartBtn
+            onClick={() => {
+              storeCtx.addItem(product, storeCtx.cartProducts);
+            }}
+          >
+            Add To Cart
+            <ProductPrice>${product.price}</ProductPrice>
+          </AddToCartBtn>
+        </span>
+        <span>
+          <AddToWishListBtn
+            onClick={() => storeCtx.addAndRemoveFromWIshlist(product)}
+          >
+            ♡
+          </AddToWishListBtn>
+        </span>
+      </StyledItemCard>
+    );
+  });
   return <>{pData}</>;
 }
 
