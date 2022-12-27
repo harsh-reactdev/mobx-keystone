@@ -11,6 +11,7 @@ import {
 import { Product, storeContext } from '../../Core/Store';
 import { useContext } from 'react';
 import { observer } from 'mobx-react';
+import { getSnapshot } from 'mobx-keystone';
 
 function ItemCard() {
   const storeCtx = useContext(storeContext);
@@ -34,7 +35,11 @@ function ItemCard() {
       <ProductTitle>{product.title}</ProductTitle>
       <span>
         <AddToCartBtn
-          onClick={() => storeCtx.addItem(product, storeCtx.cartProducts)}
+          onClick={() => {
+            storeCtx.addItem(product, storeCtx.cartProducts);
+            const sn = getSnapshot(storeContext);
+            console.log(sn);
+          }}
         >
           Add To Cart
           <ProductPrice>${product.price}</ProductPrice>
@@ -42,11 +47,7 @@ function ItemCard() {
       </span>
       <span>
         <AddToWishListBtn
-          onClick={() =>
-            storeCtx.checkIfAlreadyThere(product.id, storeCtx.wishlist)
-              ? storeCtx.deleteItem(product, storeCtx.wishlist)
-              : storeCtx.addItem(product, storeCtx.wishlist)
-          }
+          onClick={() => storeCtx.addAndRemoveFromWIshlist(product)}
         >
           ♡
         </AddToWishListBtn>

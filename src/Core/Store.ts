@@ -9,6 +9,11 @@ import {
   types,
   prop,
   getSnapshot,
+  fromSnapshot,
+  onActionMiddleware,
+  serializeActionCall,
+  ActionTrackingResult,
+  DataModel,
 } from 'mobx-keystone';
 
 @model('shoppingCart/Rating')
@@ -50,6 +55,13 @@ export class CartStore extends Model({
   }
 
   @modelAction
+  addAndRemoveFromWIshlist(item: Product) {
+    this.checkIfAlreadyThere(item.id, this.wishlist)
+      ? this.deleteItem(item, this.wishlist)
+      : this.addItem(item, this.wishlist);
+  }
+
+  @modelAction
   deleteItem(item: Product, dest: Product[]) {
     dest.splice(
       dest.findIndex((list) => item.id === list.id),
@@ -67,4 +79,31 @@ export function createRootStore() {
   return rootStore;
 }
 
-export const storeContext = createContext(createRootStore());
+const newRootStoreSnapshot = getSnapshot(createRootStore());
+const rootstore = fromSnapshot<CartStore>(newRootStoreSnapshot);
+
+// onActionMiddleware(rootstore, {
+//   onStart(actionCall, actionContext) {
+//     const serializedActionCall = serializeActionCall(actionCall, rootstore);
+
+//     // return {
+//     //   result: ActionTrackingResult.Throw,
+//     //   value: new Error('Error thrown by onActionMiddleware'),
+//     // };
+
+//     return {
+//       result: ActionTrackingResult.Return,
+//       value: actionCall.actionName,
+//     };
+//   },
+
+//   onFinish(actionCall, actionContext, ret) {
+//     if (ret.result === ActionTrackingResult.Throw) {
+//       console.log(ret.value);
+//     } else {
+//       console.log(ret.value);
+//     }
+//   },
+// });
+
+export const storeContext = createContext(rootstore);
