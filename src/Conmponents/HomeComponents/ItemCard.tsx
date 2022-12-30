@@ -11,6 +11,7 @@ import {
 import { Product, storeContext } from '../../Core/Store';
 import { useContext } from 'react';
 import { observer } from 'mobx-react';
+import { applyDelete, applyMethodCall, applySet } from 'mobx-keystone';
 
 function ItemCard() {
   const storeCtx = useContext(storeContext);
@@ -34,7 +35,12 @@ function ItemCard() {
       <ProductTitle>{product.title}</ProductTitle>
       <span>
         <AddToCartBtn
-          onClick={() => storeCtx.addItem(product, storeCtx.cartProducts)}
+          onClick={() => {
+            // storeCtx.addItem(product, storeCtx.cartProducts);
+            storeCtx.checkIfAlreadyThere(product.id, storeCtx.cartProducts) ?
+              null : applyMethodCall(storeCtx.cartProducts, "push", product);
+              // applySet(storeCtx.cartProducts, 1, product);
+          }}
         >
           Add To Cart
           <ProductPrice>${product.price}</ProductPrice>
@@ -44,8 +50,11 @@ function ItemCard() {
         <AddToWishListBtn
           onClick={() =>
             storeCtx.checkIfAlreadyThere(product.id, storeCtx.wishlist)
-              ? storeCtx.deleteItem(product, storeCtx.wishlist)
-              : storeCtx.addItem(product, storeCtx.wishlist)
+              // ? storeCtx.deleteItem(product, storeCtx.wishlist)
+              ? applyDelete(storeCtx.wishlist, storeCtx.indexFinder(storeCtx.wishlist, product.id))
+              // : storeCtx.addItem(product, storeCtx.wishlist)
+              : applyMethodCall(storeCtx.wishlist, "push", product)
+              // : applySet(storeCtx.wishlist, storeCtx.wishlist.length, product)
           }
         >
           ♡

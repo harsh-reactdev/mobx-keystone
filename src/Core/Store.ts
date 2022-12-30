@@ -43,19 +43,23 @@ export class CartStore extends Model({
   }
 
   @modelAction
+  indexFinder(dest: Product[], id: number) {
+    return dest.findIndex(elem => elem.id === id);
+    }
+  @modelAction
   addItem(item: Product, dest: Product[]) {
     const check = this.checkIfAlreadyThere(item.id, dest);
     if (!check) dest.push(item);
     // // console.log(item);
   }
 
-  @modelAction
-  deleteItem(item: Product, dest: Product[]) {
-    dest.splice(
-      dest.findIndex((list) => item.id === list.id),
-      1
-    );
-  }
+  // @modelAction
+  // deleteItem(item: Product, dest: Product[]) {
+  //   dest.splice(
+  //     dest.findIndex((list) => item.id === list.id),
+  //     1
+  //   );
+  // }
 }
 
 export function createRootStore() {

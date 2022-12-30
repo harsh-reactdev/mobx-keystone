@@ -17,7 +17,7 @@ const WishlistItems = observer(() => {
 
   const list = storeCtx.wishlist.map((item, index) => (
     <StyledCartCard key={index}>
-      <CartBarImg src={item.image} alt={item.title}></CartBarImg>
+      <CartBarImg src={item.image} alt={item.title} ></CartBarImg>
     </StyledCartCard>
   ));
 

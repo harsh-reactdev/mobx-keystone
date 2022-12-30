@@ -9,6 +9,7 @@ import {
   DecrementBtn,
 } from '../StyledComponents/StyledComps';
 import { observer } from 'mobx-react';
+import { applyDelete } from 'mobx-keystone';
 
 const CartItems = observer(() => {
   const storeCtx = useContext(storeContext);
@@ -26,7 +27,7 @@ const CartItems = observer(() => {
         <DecrementBtn
           onClick={() =>
             itemCount === 1
-              ? storeCtx.deleteItem(item, storeCtx.cartProducts)
+              ? applyDelete(storeCtx.cartProducts, storeCtx.indexFinder(storeCtx.cartProducts, item.id))
               : itemCount > 1
               ? setItemCount(itemCount - 1)
               : null
